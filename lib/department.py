@@ -45,3 +45,10 @@ class Department:
         CONN.commit()
 
         self.id = CURSOR.lastrowid
+
+    @classmethod
+    def create(cls, name, location):
+        """ Initialize a new Department instance and save the object to the database """
+        department = cls(name, location)
+        department.save()
+        return department
